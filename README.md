@@ -1,2 +1,2 @@
 # Warehouse Management Project
-Warehouse management project
+Warehouse management project with core JAVA
