@@ -1,2 +1,2 @@
-# warehouse_management_Project
+# Warehouse Management Project
 Warehouse management project
