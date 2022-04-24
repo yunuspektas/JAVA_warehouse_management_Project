@@ -1,11 +1,11 @@
 package WareHouse_Project;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Products {
 
     public static Map<Integer, Products> itemMap = new HashMap<>();
+    public static List<Integer> keySet = new ArrayList<>();
 
     private String productName ;
     private String manufacturer ;
