@@ -10,7 +10,7 @@ public class TryCach {
 
     }
 
-    public static int intGirisi() {
+    public static int intControl() {
         int giris = 0;
         boolean flag = true;
         boolean flag2 = false;
@@ -27,7 +27,7 @@ public class TryCach {
                 flag = false;
                 flag2 = false;
             } catch (Exception e) {
-                System.out.println("lütfen geçerli bir giris yapınız");
+                System.out.println("! please make a valid entry");
             }
 
         } while (flag);
@@ -35,7 +35,7 @@ public class TryCach {
         return giris;
     }
 
-    public static String stringGirisi() {
+    public static String stringControl() {
         String giris = "";
         boolean flag = true;
 
@@ -46,7 +46,7 @@ public class TryCach {
                 scan.nextLine();        //Dummy1
                 flag = false;
             } catch (Exception e) {
-                System.out.println("lütfen geçerli bir giris yapınız");
+                System.out.println("! please make a valid entry");
             }
         } while (flag);
         return giris;

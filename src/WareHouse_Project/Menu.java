@@ -16,7 +16,7 @@ public class Menu {
                 5- Exit Item
                 6- Exit Program""");
         //int choise = scan.nextInt();
-        int choise = TryCach.intGirisi();
+        int choise = TryCach.intControl();
        // if(choise<7 && choise > 0) {
             switch (choise) {
                 case 1 -> {
@@ -46,10 +46,6 @@ public class Menu {
 
             }
 
-       // } else {
-        //    System.out.println(" !!! Giriş hatalı , lütfen yeniden deneyiniz !!!");
-
-       // }
         menu();
     }
 }
