@@ -8,7 +8,7 @@ public class Menu {
         System.out.println("");
         System.out.println("Please choise your operations.. ");
         System.out.println("");
-        System.out.println("1- Add New Item \n2- List Items\n3- Ürün Girişi" +
+        System.out.println("1- Add New Item \n2- List Items\n3- Add Item" +
                 "\n4- Put Item to Shelf\n5- Exit Item\n6- Exit Program");
         int choise = scan.nextInt();
         if(choise<7 && choise > 0) {
