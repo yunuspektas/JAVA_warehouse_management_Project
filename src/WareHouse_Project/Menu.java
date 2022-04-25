@@ -15,8 +15,9 @@ public class Menu {
                 4- Put Item to Shelf
                 5- Exit Item
                 6- Exit Program""");
-        int choise = scan.nextInt();
-        if(choise<7 && choise > 0) {
+        //int choise = scan.nextInt();
+        int choise = TryCach.intGirisi();
+       // if(choise<7 && choise > 0) {
             switch (choise) {
                 case 1 -> {
                     WareHouse_Methods.defineItem();
@@ -44,10 +45,11 @@ public class Menu {
                 }
 
             }
-            menu();
-        } else {
-            System.out.println(" !!! Giriş hatalı , lütfen yeniden deneyiniz !!!");
 
-        }
+       // } else {
+        //    System.out.println(" !!! Giriş hatalı , lütfen yeniden deneyiniz !!!");
+
+       // }
+        menu();
     }
 }

@@ -14,13 +14,13 @@ public class WareHouse_Methods {
 
     public static void defineItem() {
         System.out.print("Ürün ismini giriniz : ");
-        String itemName = scan.next();
+        String itemName = TryCach.stringGirisi();
 
         System.out.print("Üretici Firma ismini giriniz : ");
-        String manifacturer = scan.next();
+        String manifacturer = TryCach.stringGirisi();
 
         System.out.print("Birimi giriniz : ");
-        String unit = scan.next();
+        String unit = TryCach.stringGirisi();
 
         Products item1 = new Products(itemName, manifacturer, 0, unit, "null");
         itemMap.put(id, item1);
@@ -54,7 +54,7 @@ public class WareHouse_Methods {
 
     public static void addItem(){
         System.out.print("Girmek istediğiniz ürün id sini giriniz : ");
-        int is = scan.nextInt();
+        int is = TryCach.intGirisi();
         if(itemMap.containsKey(is)) {
             System.out.print("Ne kadar giriş yapmak istiyorsunuz : ");
             itemMap.get(is).setQuantity(itemMap.get(is).getQuantity() + scan.nextInt());
@@ -67,7 +67,7 @@ public class WareHouse_Methods {
     public static void putItemToShelf(){
         // id ye göre objeyi getiren mthod yazalşım burada
         System.out.print("Ürünün id sini giriniz : ");
-        int is = scan.nextInt();
+        int is = TryCach.intGirisi();
         if(itemMap.containsKey(is)) {
             System.out.print("Hangi rafa koymak istiyorsunuz : ");
             itemMap.get(is).setShelfNo(scan.next());
@@ -80,7 +80,7 @@ public class WareHouse_Methods {
     public static void sellItem(){
 
         System.out.print("Ürünün id sini giriniz : ");
-        int is = scan.nextInt();
+        int is = TryCach.intGirisi();
         if(itemMap.containsKey(is)) {
             System.out.print("Ne kadar çıkış yapmak istiyorsunuz : ");
             itemMap.get(is).setQuantity(itemMap.get(is).getQuantity() - scan.nextInt());
