@@ -37,14 +37,14 @@ public class WareHouse_Methods {
                 , "QUANTITY", "UNIT", "SHELF");
         System.out.println("=========================================================================");
         //System.out.println(keySet.size());
-        for (int i = 0; i <keySet.size() ; i++) {
+        for (Integer integer : keySet) {
 
-            System.out.printf("\t%-8s %-10s %-15s %-12s %-10s %-7s\n", keySet.get(i),
-                    itemMap.get(keySet.get(i)).getProductName(),
-                    itemMap.get(keySet.get(i)).getManufacturer(),
-                    itemMap.get(keySet.get(i)).getQuantity(),
-                    itemMap.get(keySet.get(i)).getUnit(),
-                    itemMap.get(keySet.get(i)).getShelfNo());
+            System.out.printf("\t%-8s %-10s %-15s %-12s %-10s %-7s\n", integer,
+                    itemMap.get(integer).getProductName(),
+                    itemMap.get(integer).getManufacturer(),
+                    itemMap.get(integer).getQuantity(),
+                    itemMap.get(integer).getUnit(),
+                    itemMap.get(integer).getShelfNo());
 
         }
 
@@ -64,7 +64,7 @@ public class WareHouse_Methods {
         }
     }
 
-    public static void puttingItemToShelf(){
+    public static void putItemToShelf(){
         // id ye göre objeyi getiren mthod yazalşım burada
         System.out.print("Ürünün id sini giriniz : ");
         int is = scan.nextInt();
@@ -77,7 +77,7 @@ public class WareHouse_Methods {
 
     }
 
-    public static void exitItem(){
+    public static void sellItem(){
 
         System.out.print("Ürünün id sini giriniz : ");
         int is = scan.nextInt();

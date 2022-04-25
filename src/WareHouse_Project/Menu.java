@@ -26,11 +26,11 @@ public class Menu {
                     break;
                 }
                 case 4 -> {
-                    WareHouse_Methods.puttingItemToShelf();
+                    WareHouse_Methods.putItemToShelf();
                     break;
                 }
                 case 5 -> {
-                    WareHouse_Methods.exitItem();
+                    WareHouse_Methods.sellItem();
                     break;
                 }
                 case 6 -> {
@@ -41,7 +41,7 @@ public class Menu {
             }
             menu();
         } else {
-            System.out.println("Giriş hatalı , lütfen yeniden deneyiniz ");
+            System.out.println(" !!! Giriş hatalı , lütfen yeniden deneyiniz !!!");
 
         }
     }
