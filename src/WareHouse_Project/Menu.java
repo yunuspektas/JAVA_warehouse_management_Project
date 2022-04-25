@@ -8,8 +8,13 @@ public class Menu {
         System.out.println("");
         System.out.println("Please choise your operations.. ");
         System.out.println("");
-        System.out.println("1- Add New Item \n2- List Items\n3- Add Item" +
-                "\n4- Put Item to Shelf\n5- Exit Item\n6- Exit Program");
+        System.out.println("""
+                1- Add New Item\s
+                2- List Items
+                3- Add Item
+                4- Put Item to Shelf
+                5- Exit Item
+                6- Exit Program""");
         int choise = scan.nextInt();
         if(choise<7 && choise > 0) {
             switch (choise) {
