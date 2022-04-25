@@ -25,6 +25,7 @@ public class Products {
         itemMap.put(1002, seker);
         itemMap.put(1003, tuz);
         itemMap.put(1004, cilek);
+        keySet.addAll(itemMap.keySet());
     }
 
     public Products(String productName, String manufacturer, int quantity, String unit, String shelfNo) {

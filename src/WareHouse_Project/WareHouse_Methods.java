@@ -1,7 +1,5 @@
 package WareHouse_Project;
 
-import JavaProjects.P11_depoYonetimi.Mrc.item;
-
 import java.util.Scanner;
 
 import static WareHouse_Project.Products.itemMap;
@@ -15,31 +13,33 @@ public class WareHouse_Methods {
 
 
     public static void defineItem() {
-        System.out.println("Ürün ismini giriniz : ");
+        System.out.print("Ürün ismini giriniz : ");
         String itemName = scan.next();
 
-        System.out.println("Üretici Firma ismini giriniz : ");
+        System.out.print("Üretici Firma ismini giriniz : ");
         String manifacturer = scan.next();
 
-        System.out.println("Birimi giriniz : ");
+        System.out.print("Birimi giriniz : ");
         String unit = scan.next();
 
-        Products item = new Products(itemName, manifacturer, 0, unit, "null");
-        itemMap.put(id, item);
+        Products item1 = new Products(itemName, manifacturer, 0, unit, "null");
+        itemMap.put(id, item1);
+        keySet.add(id);
         id++;
+
+
     }
 
     public static void listItems() {
-        keySet.addAll(itemMap.keySet());
 
         System.out.println("");
-        System.out.printf("\t%-8s %-10s %-12s %-12s %-10s %-7s\n", "id", "ismi", "ureticisi"
-                , "miktarı", "birimi", "raf");
-        System.out.println("================================================================");
-
+        System.out.printf("\t%-8s %-10s %-15s %-12s %-10s %-7s\n", "ID", "NAME", "MANUFACTURER"
+                , "QUANTITY", "UNIT", "SHELF");
+        System.out.println("=========================================================================");
+        //System.out.println(keySet.size());
         for (int i = 0; i <keySet.size() ; i++) {
 
-            System.out.printf("\t%-8s %-10s %-12s %-12s %-10s %-7s\n", itemMap.keySet().toArray()[i],
+            System.out.printf("\t%-8s %-10s %-15s %-12s %-10s %-7s\n", keySet.get(i),
                     itemMap.get(keySet.get(i)).getProductName(),
                     itemMap.get(keySet.get(i)).getManufacturer(),
                     itemMap.get(keySet.get(i)).getQuantity(),
@@ -47,16 +47,51 @@ public class WareHouse_Methods {
                     itemMap.get(keySet.get(i)).getShelfNo());
 
         }
-//        for (int i = 0; i < itemMap.values().size(); i++) {
-//            System.out.printf("\t%-8s %-10s %-12s %-12s %-10s %-7s\n", itemMap.keySet().toArray()[i],
-//                    itemMap.get(i).getProductName(),
-//                    itemMap.get(itemMap.keySet().toArray()[i]).getManufacturer(),
-//                    itemMap.get(itemMap.keySet().toArray()[i]).getQuantity(),
-//                    itemMap.get(itemMap.keySet().toArray()[i]).getUnit(),
-//                    itemMap.get(itemMap.keySet().toArray()[i]).getShelfNo());
-//        }
 
 
+
+    }
+
+    public static void addItem(){
+        System.out.print("Girmek istediğiniz ürün id sini giriniz : ");
+        int is = scan.nextInt();
+        if(itemMap.containsKey(is)) {
+            System.out.print("Ne kadar giriş yapmak istiyorsunuz : ");
+            itemMap.get(is).setQuantity(itemMap.get(is).getQuantity() + scan.nextInt());
+        } else {
+            System.out.println("");
+            System.out.println("!!! Girdiğiniz id sistemimizde bulunmamaktadır !!!");
+        }
+    }
+
+    public static void puttingItemToShelf(){
+        // id ye göre objeyi getiren mthod yazalşım burada
+        System.out.print("Ürünün id sini giriniz : ");
+        int is = scan.nextInt();
+        if(itemMap.containsKey(is)) {
+            System.out.print("Hangi rafa koymak istiyorsunuz : ");
+            itemMap.get(is).setShelfNo(scan.next());
+        } else {
+            System.out.println("!!! Girdiğiniz id sistemimizde bulunmamaktadır !!!");
+        }
+
+    }
+
+    public static void exitItem(){
+
+        System.out.print("Ürünün id sini giriniz : ");
+        int is = scan.nextInt();
+        if(itemMap.containsKey(is)) {
+            System.out.print("Ne kadar çıkış yapmak istiyorsunuz : ");
+            itemMap.get(is).setQuantity(itemMap.get(is).getQuantity() - scan.nextInt());
+        } else {
+            System.out.println("Girdiğiniz id sistemimizde bulunmamaktadır");
+        }
+
+    }
+
+    public static void exit(){
+        System.exit(0);
     }
 
 
