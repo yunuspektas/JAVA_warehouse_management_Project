@@ -12,7 +12,7 @@ public class TicketReservation {
     static Scanner scan = new Scanner(System.in);
     static double ticketprice = 0.0 ;
     static List<Integer> asecilenKoltukNumaraları = new ArrayList<>();
-    static List<String> izlenecekFilmler = new ArrayList<>();
+    static List<String> izlenecekFilmler = new ArrayList<>(); // bilet hesaplama öncesi izlenmek için seçilen filmler
 
     public static void ticket() {
 
@@ -93,6 +93,7 @@ public class TicketReservation {
 
     }
 
+    //kullanıcının sectiği filmi mapden bulup getiren metod
     private static String findFilm(int secim) {
         String filmName = "" ;
         switch (secim) {
@@ -120,6 +121,7 @@ public class TicketReservation {
         return filmName ;
     }
 
+    //seçilen sinema salonunun koltuklarını ekrana gösteren metod
     private static void showRoom() {
         System.out.println
                 ("""
@@ -157,6 +159,7 @@ public class TicketReservation {
         ticketPrice(numberOfTickets, secim);
     }
 
+    //nihai olarak bilet fiyatını hesaplayan metod
     private static void ticketPrice(int numberOfTickets, int secim) {
         System.out.println("");
         System.out.println("****************************************");
@@ -183,7 +186,7 @@ public class TicketReservation {
 
     }
 
-
+    // koltuk daha önce satılmış mı ?
     private static boolean koltukKontrol(int secilenKoltukNumarasi, int secim) {
         boolean flag = false;
         switch (secim) {
@@ -219,7 +222,7 @@ public class TicketReservation {
         return flag;
     }
 
-
+    // açılış logo ekranı
     public static void banner() {
         System.out.println("\n\n");
         System.out.println("\t\t\t================================================");

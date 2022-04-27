@@ -9,7 +9,7 @@ import java.util.Map;
 public class Room {
     public List<Integer> secilenKoltukNumaraları = new ArrayList<>();
     static Map<String, Room> roomMap = new HashMap<>();
-    private  int bosKoltukSayisi = 25;
+    private int bosKoltukSayisi = 25;
 
     public Room() {
     }
@@ -30,7 +30,6 @@ public class Room {
         roomMap.put("Room4", Room4);
         roomMap.put("Room5", Room5);
     }
-
 
 
     public int getBosKoltukSayisi() {

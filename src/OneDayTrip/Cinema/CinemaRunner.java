@@ -6,7 +6,7 @@ public class CinemaRunner {
         Room.initializeRooms();
         Movie mv = new Movie();
 
-       TicketReservation.banner();
+        TicketReservation.banner();
 
         TicketReservation.ticket();
     }
