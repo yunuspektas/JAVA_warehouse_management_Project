@@ -1,6 +1,7 @@
 package OneDayTrip.Cinema;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,8 +11,9 @@ import static OneDayTrip.Cinema.Room.roomMap;
 
 public class TicketReservation {
     static Scanner scan = new Scanner(System.in);
-    static double ticketprice = 0.0 ;
+    static double ticketprice = 0.0;
     static List<Integer> asecilenKoltukNumaraları = new ArrayList<>();
+    static List<String> yemeIcmeList = new ArrayList<>();
     static List<String> izlenecekFilmler = new ArrayList<>(); // bilet hesaplama öncesi izlenmek için seçilen filmler
 
     public static void ticket() {
@@ -31,23 +33,27 @@ public class TicketReservation {
         switch (secim) {
             case 1 -> {
                 koltukSecimi(numberOfTickets, secim);
+                //System.out.println("deneme" + roomMap.get("Room1").getSecilenKoltukNumaraları());
                 roomMap.get("Room1").secilenKoltukNumaraları.addAll(asecilenKoltukNumaraları);
+                // System.out.println("deneme2" + roomMap.get("Room1").getSecilenKoltukNumaraları());
                 roomMap.get("Room1").setBosKoltukSayisi(roomMap.get("Room1").getBosKoltukSayisi() - numberOfTickets);
-                System.out.print("Seçtiğiniz koltuk numaraları : ");
-                for (int w : roomMap.get("Room1").getSecilenKoltukNumaraları()) {
-                    System.out.print(w + " / ");
-                }
+                // System.out.println("deneme3" + roomMap.get("Room1").getSecilenKoltukNumaraları());
+//                System.out.print("Seçtiğiniz koltuk numaraları : ");
+//                for (int w : roomMap.get("Room1").getSecilenKoltukNumaraları()) {
+//                    System.out.print(w + " / ");
+//                }
+                // System.out.println("deneme4" + roomMap.get("Room1").getSecilenKoltukNumaraları());
                 break;
             }
             case 2 -> {
                 koltukSecimi(numberOfTickets, secim);
                 roomMap.get("Room2").secilenKoltukNumaraları.addAll(asecilenKoltukNumaraları);
                 roomMap.get("Room2").setBosKoltukSayisi(roomMap.get("Room2").getBosKoltukSayisi() - numberOfTickets);
-                System.out.print("Seçtiğiniz koltuk numaraları : ");
-
-                for (int w : roomMap.get("Room2").getSecilenKoltukNumaraları()) {
-                    System.out.print(w + " / ");
-                }
+//                System.out.print("Seçtiğiniz koltuk numaraları : ");
+//
+//                for (int w : roomMap.get("Room2").getSecilenKoltukNumaraları()) {
+//                    System.out.print(w + " / ");
+//                }
 
                 break;
             }
@@ -55,11 +61,11 @@ public class TicketReservation {
                 koltukSecimi(numberOfTickets, secim);
                 roomMap.get("Room3").secilenKoltukNumaraları.addAll(asecilenKoltukNumaraları);
                 roomMap.get("Room3").setBosKoltukSayisi(roomMap.get("Room3").getBosKoltukSayisi() - numberOfTickets);
-                System.out.print("Seçtiğiniz koltuk numaraları : ");
-
-                for (int w : roomMap.get("Room3").getSecilenKoltukNumaraları()) {
-                    System.out.print(w + " / ");
-                }
+//                System.out.print("Seçtiğiniz koltuk numaraları : ");
+//
+//                for (int w : roomMap.get("Room3").getSecilenKoltukNumaraları()) {
+//                    System.out.print(w + " / ");
+//                }
                 break;
             }
             case 4 -> {
@@ -67,35 +73,120 @@ public class TicketReservation {
                 roomMap.get("Room4").secilenKoltukNumaraları.addAll(asecilenKoltukNumaraları);
                 roomMap.get("Room4").setBosKoltukSayisi(roomMap.get("Room4").getBosKoltukSayisi() - numberOfTickets);
 
-                System.out.print("Seçtiğiniz koltuk numaraları : ");
-
-                for (int w : roomMap.get("Room4").getSecilenKoltukNumaraları()) {
-                    System.out.print(w + " / ");
-                }
+//                System.out.print("Seçtiğiniz koltuk numaraları : ");
+//
+//                for (int w : roomMap.get("Room4").getSecilenKoltukNumaraları()) {
+//                    System.out.print(w + " / ");
+//                }
                 break;
             }
             case 5 -> {
                 koltukSecimi(numberOfTickets, secim);
                 roomMap.get("Room5").secilenKoltukNumaraları.addAll(asecilenKoltukNumaraları);
                 roomMap.get("Room5").setBosKoltukSayisi(roomMap.get("Room5").getBosKoltukSayisi() - numberOfTickets);
-                System.out.print("Seçtiğiniz koltuk numaraları : ");
-
-                for (int w : roomMap.get("Room5").getSecilenKoltukNumaraları()) {
-                    System.out.print(w + " / ");
-                }
+//                System.out.print("Seçtiğiniz koltuk numaraları : ");
+//
+//                for (int w : roomMap.get("Room5").getSecilenKoltukNumaraları()) {
+//                    System.out.print(w + " / ");
+//                }
                 System.out.println("");
                 break;
             }
+            default -> {
+                System.out.println("!!! Hatalı giriş yaptınız");
+                ticket();
+            }
         }
         System.out.println(" ");
-        ticket();
+        yemeIcme(numberOfTickets, secim);
+
+        //ticket();
 
 
     }
 
+    private static void yemeIcme(int numberOfTickets, int secim) {
+        System.out.println("İçecek , yiyecek bişeyler almak ister misiniz ? \n1- Evet\n2- Hayır");
+        switch (scan.nextInt()) {
+            case 1: {
+
+                yemeIcmeMenu(numberOfTickets, secim);
+                break;
+            }
+            case 2: {
+                ticketPrice(numberOfTickets, secim);
+                break;
+            }
+            default:{
+                System.out.println("!!! Hatalı giriş yaptınız ");
+                ticketPrice(numberOfTickets, secim);
+
+            }
+        }
+    }
+
+    private static void yemeIcmeMenu(int numberOfTickets, int secim) {
+        System.out.println("*************   MENU   ****************");
+        System.out.println("");
+        System.out.println("1- Su       5 TL ");
+        System.out.println("2- COLA     15 TL ");
+        System.out.println("3- M.SUYU   10 TL ");
+        System.out.println("4- CİPS     15 TL ");
+        System.out.println("5- P.MISIR  15 TL ");
+        System.out.println("6- ÇIKIŞ ");
+        System.out.println("");
+        try {
+            switch (scan.nextInt()) {
+                case 1: {
+                    ticketprice += 5;
+                    yemeIcmeList.add("Su");
+                    System.out.println("hesabınıza su eklendi..");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+                case 2: {
+                    ticketprice += 15;
+                    yemeIcmeList.add("Cola");
+                    System.out.println("hesabınıza cola eklendi..");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+                case 3: {
+                    ticketprice += 10;
+                    yemeIcmeList.add("Meyve Suyu");
+                    System.out.println("hesabınıza meyve suyu eklendi..");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+                case 4: {
+                    ticketprice += 15;
+                    yemeIcmeList.add("Cips");
+                    System.out.println("hesabınıza cips eklendi..");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+                case 5: {
+                    ticketprice += 15;
+                    yemeIcmeList.add("Patlamış Mısır");
+                    System.out.println("hesabınıza patlamış mısır eklendi..");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+                case 6: {
+                    ticketPrice(numberOfTickets, secim);
+                }
+                default : {
+                    System.out.println("!!! Hatalı seçim yaptınız ");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("!!! Giriş hatası ");
+            //yemeIcmeMenu(numberOfTickets, secim);
+        }
+    }
+
+
+
+
     //kullanıcının sectiği filmi mapden bulup getiren metod
     private static String findFilm(int secim) {
-        String filmName = "" ;
+        String filmName = "";
         switch (secim) {
             case 1 -> {
                 filmName = movieMap.get("movie1").getMovieName();
@@ -117,8 +208,12 @@ public class TicketReservation {
                 filmName = movieMap.get("movie5").getMovieName();
                 break;
             }
+            default -> {
+                System.out.println("!!! Hatalı giriş yaptınız : ");
+                findFilm(secim);
+            }
         }
-        return filmName ;
+        return filmName;
     }
 
     //seçilen sinema salonunun koltuklarını ekrana gösteren metod
@@ -143,33 +238,46 @@ public class TicketReservation {
     private static void koltukSecimi(int numberOfTickets, int secim) {
         for (int i = 0; i < numberOfTickets; i++) {
             System.out.print("Bilet almak istediğiniz " + (i + 1) + ". koltuğu seçiniz : ");
-            scan.nextLine();
+            //scan.nextLine();
             int secilenKoltukNumarasi = scan.nextInt();
             if (koltukKontrol(secilenKoltukNumarasi, secim)) {
+                //System.out.println("calıştı");
                 asecilenKoltukNumaraları.add(secilenKoltukNumarasi);
 
             } else {
-                System.out.println("seçtiğiniz koltuk dolu");
+                System.out.println(" !! seçtiğiniz koltuk dolu !!");
                 i--;
             }
 
 
         }
         System.out.println(" ");
-        ticketPrice(numberOfTickets, secim);
+        //ticketPrice(numberOfTickets, secim);
     }
 
     //nihai olarak bilet fiyatını hesaplayan metod
     private static void ticketPrice(int numberOfTickets, int secim) {
         System.out.println("");
         System.out.println("****************************************");
+        System.out.println("               ADİSYONUNUZ              ");
         System.out.println("");
-        System.out.println("İzlemek istediğiniz film : " );
+        System.out.println("");
+        System.out.println("--> İzlemek istediğiniz film : ");
+        System.out.println("==============================");
         //getFilm(secim);
         for (String w : izlenecekFilmler) {
             System.out.println("* " + w + "\n");
         }
-        ticketprice += 25*numberOfTickets;
+        System.out.println("");
+        if(yemeIcmeList.size()>0) {
+            System.out.println("--> Büfe Alışverişiniz");
+            System.out.println("======================");
+            for (String str : yemeIcmeList) {
+                System.out.println("* " + str);
+            }
+            System.out.println("");
+        }
+        ticketprice += 25 * numberOfTickets;
         System.out.println("Toplam bilet ücretiniz : " + ticketprice + " TL");
         System.out.println("");
         System.out.println("****************************************");
@@ -181,6 +289,10 @@ public class TicketReservation {
                 break;
             }
             case 2 -> System.exit(0);
+            default -> {
+                System.out.println("!!! Hatalı giriş yaptınız");
+                ticket();
+            }
         }
 
 
@@ -215,7 +327,7 @@ public class TicketReservation {
                 break;
             }
             default: {
-                System.out.println("hata");
+                System.out.println("!!! hatalı giriş yaptınız");
             }
         }
 
