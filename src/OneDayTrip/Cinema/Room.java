@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Room {
-    public List<Integer> secilenKoltukNumaraları = new ArrayList<>();
+    public List<Integer> secilenKoltukNumaralari = new ArrayList<>();
     static Map<String, Room> roomMap = new HashMap<>();
     private int bosKoltukSayisi = 25;
 
     public Room() {
     }
 
-    public Room(int bosKoltukSayisi) {
-        this.bosKoltukSayisi = bosKoltukSayisi;
-    }
+//    public Room(int bosKoltukSayisi) {
+//        this.bosKoltukSayisi = bosKoltukSayisi;
+//    }
 
     public static void initializeRooms() {
         Room Room1 = new Room();
@@ -40,9 +40,9 @@ public class Room {
         this.bosKoltukSayisi = bosKoltukSayisi;
     }
 
-    public List<Integer> getSecilenKoltukNumaraları() {
-        return secilenKoltukNumaraları;
-    }
+//    public List<Integer> getSecilenKoltukNumaralari() {
+//        return secilenKoltukNumaralari;
+//    }
 
 
 }
